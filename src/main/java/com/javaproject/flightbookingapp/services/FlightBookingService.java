@@ -1,4 +1,4 @@
-/*package com.javaproject.flightbookingapp.services;
+package com.javaproject.flightbookingapp.services;
 
 import com.javaproject.flightbookingapp.domain.FlightBooking;
 import org.springframework.stereotype.Service;
@@ -20,4 +20,4 @@ public interface FlightBookingService {
     void deleteFlight(long Id);
 
 
-}*/
+}
