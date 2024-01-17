@@ -1,4 +1,4 @@
-/*package com.javaproject.flightbookingapp.services;
+package com.javaproject.flightbookingapp.services;
 
 import com.javaproject.flightbookingapp.domain.FlightBooking;
 import com.javaproject.flightbookingapp.repository.FlightBookingRepository;
@@ -70,4 +70,3 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         flightBookingRepository.deleteById(id);
     }
 }
-*/
