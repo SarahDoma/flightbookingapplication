@@ -29,9 +29,9 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         } else {
             throw new RuntimeException("This flight is not available");
         }
-    }*/
+    }
 
-    /*@Override
+    @Override
     public FlightBooking getHotelById(long Id) {
         return null;
     }
