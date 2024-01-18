@@ -1,4 +1,4 @@
-package com.javaproject.flightbookingapp.domain;
+/*package com.javaproject.flightbookingapp.domain;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -107,4 +107,4 @@ public class FlightBooking {
         this.update_date = update_date;
     }
 
-}
+}*/

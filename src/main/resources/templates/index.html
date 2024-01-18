@@ -1,248 +1,294 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:fragment="head">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
-  <link rel="stylesheet" href="fragments/style.css" />
-  <link rel="stylesheet" href="styles.css" /> <!-- Add your custom styles here -->
-  <link rel="stylesheet" href="fragments/custom.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <title>Flight Booking | Sky Explorer</title>
+</head>-->
+<!--<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:fragment="head">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
   <title>Flight Booking | Sky Explorer</title>
 </head>
 <body>
-<style>
-  .explore__bg {
-    margin-top: 4rem;
-    padding-block: 3rem;
-    display: grid;
-    grid-template-columns:
-      minmax(1rem, 1fr)
-      minmax(0, var(--max-width))
-      minmax(1rem, 1fr);
-    background-image: url("fragments/header-hero.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .service {
-    background-image: url("fragments/service.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  .header {
-    background-image: url("fragments/header.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-</style>
-<header class="header">
-  <nav>
-    <div class="nav__bar">
-      <div class="logo">
-        <a href="#" style="color: #bc1c5c; text-decoration: none"><span>Sky Explorer</span></a>
-      </div>
-      <div class="nav_menu_btn" id="menu-btn">
-        <i class="ri-menu-line"></i>
-      </div>
-    </div>
-    <ul class="nav__links" id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#service">Services</a></li>
-      <li><a href="#explore">Explore</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="btn nav__btn" onclick="book()">Book Now</button>
-  </nav>
-  <div class="section_container header_container" id="home">
-    <p>Explore the Skies</p>
-    <h1>Discover Your Next Adventure<br />With <span>Sky Explorer</span>.</h1>
-  </div>
+<nav>
+  <div class="nav__logo">Sky Explorer</div>
+  <ul class="nav__links">
+    <li class="link"><a href="#">Home</a></li>
+    <li class="link"><a href="#">About</a></li>
+    <li class="link"><a href="#">Offers</a></li>
+    <li class="link"><a href="#">Seats</a></li>
+    <li class="link"><a href="#">Destinations</a></li>
+  </ul>
+  <button class="btn">Contact</button>
+</nav>
+<header class="section__container header__container">
+  <h1 class="section__header">Find And Book<br />A Great Experience</h1>
+  <img th:src="@{/images/header.jpg}" alt="header" />
 </header>
 
-<section class="section_container booking_container">
-  <form action="#" class="booking__form">
-    <div class="input__group">
-      <span><i class="ri-calendar-2-fill"></i></span>
-      <div>
-        <label>DEPARTURE</label>
-        <input type="text" placeholder="Departure Date" />
+<section class="section__container booking__container">
+  <div class="booking__nav">
+    <span>Economy Class</span>
+    <span>Business Class</span>
+    <span>First Class</span>
+  </div>
+  <form>
+    <div class="form__group">
+      <span><i class="ri-map-pin-line"></i></span>
+      <div class="input__content">
+        <div class="input__group">
+          <input type="text" />
+          <label>Location</label>
+        </div>
+        <p>Where are you going?</p>
       </div>
     </div>
-    <div class="input__group">
-      <span><i class="ri-calendar-2-fill"></i></span>
-      <div>
-        <label>RETURN</label>
-        <input type="text" placeholder="Return Date" />
+    <div class="form__group">
+      <span><i class="ri-user-3-line"></i></span>
+      <div class="input__content">
+        <div class="input__group">
+          <input type="number" />
+          <label>Travellers</label>
+        </div>
+        <p>Add guests</p>
       </div>
     </div>
-    <div class="input__group">
-      <span><i class="ri-user-fill"></i></span>
-      <div>
-        <label>PASSENGERS</label>
-        <input type="text" placeholder="Number of Passengers" />
+    <div class="form__group">
+      <span><i class="ri-calendar-line"></i></span>
+      <div class="input__content">
+        <div class="input__group">
+          <input type="text" />
+          <label>Departure</label>
+        </div>
+        <p>Add date</p>
       </div>
     </div>
-    <button class="btn" onclick="searchFlights()">Search Flights</button>
+    <div class="form__group">
+      <span><i class="ri-calendar-line"></i></span>
+      <div class="input__content">
+        <div class="input__group">
+          <input type="text" />
+          <label>Return</label>
+        </div>
+        <p>Add date</p>
+      </div>
+    </div>
+    <button class="btn"><i class="ri-search-line"></i></button>
   </form>
 </section>
 
-<section class="section_container about_container" id="about">
-  <div class="about__image">
-    <img src="fragments/about.jpg" alt="about" />
-  </div>
-  <div class="about__content">
-    <p class="section__subheader">ABOUT US</p>
-    <h2 class="section__header">Your Journey Begins Here!</h2>
-    <p class="section__description">
-      Sky Explorer is committed to providing seamless flight booking experiences, ensuring your journey is comfortable and memorable.
-    </p>
-    <div class="about__btn">
-      <button class="btn">Read More</button>
-    </div>
-  </div>
-</section>
-
-<section class="section_container flight_options">
-  <p class="section__subheader">FLIGHT OPTIONS</p>
-  <h2 class="section__header">Choose Your Preferred Flight</h2>
-  <div class="flight__grid">
-    <!-- Flight options go here -->
-    <div class="flight__card">
-      <div class="flight_card_details">
-        <h4>Economy Class</h4>
-        <p>
-          Comfortable seating at an affordable price for budget-conscious travelers.
-        </p>
-        <h5>Starting from <span>$199</span></h5>
-      </div>
-    </div>
-    <div class="flight__card">
-      <div class="flight_card_details">
-        <h4>Business Class</h4>
-        <p>
-          Enhanced services and luxurious amenities for a premium flying experience.
-        </p>
-        <h5>Starting from <span>$499</span></h5>
-      </div>
-    </div>
-    <div class="flight__card">
-      <div class="flight_card_details">
-        <h4>First Class</h4>
-        <p>
-          Unparalleled luxury and personalized services for the ultimate travel experience.
-        </p>
-        <h5>Starting from <span>$999</span></h5>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="service" id="service">
-  <div class="section_container service_container">
-    <div class="service__content">
-      <p class="section__subheader">SERVICES</p>
-      <h2 class="section__header">Unmatched Services for Your Journey.</h2>
-      <ul class="service__list">
-        <li>
-          <span><i class="ri-shield-star-line"></i></span>
-          High-Class Security Measures
-        </li>
-        <li>
-          <span><i class="ri-24-hours-line"></i></span>
-          24/7 Customer Support
-        </li>
-        <li>
-          <span><i class="ri-headphone-line"></i></span>
-          In-Flight Entertainment
-        </li>
-        <li>
-          <span><i class="ri-map-2-line"></i></span>
-          Multiple Destinations
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="section_container banner_container">
-  <div class="banner__content">
-    <div class="banner__card">
-      <h4>100+</h4>
-      <p>Destinations Worldwide</p>
-    </div>
-    <div class="banner__card">
-      <h4>1M+</h4>
-      <p>Satisfied Travelers</p>
-    </div>
-    <div class="banner__card">
-      <h4>24/7</h4>
-      <p>Customer Support</p>
-    </div>
-  </div>
-</section>
-
-<section class="explore" id="explore">
-  <p class="section__subheader">EXPLORE</p>
-  <h2 class="section__header">Stay Informed About Our Offers.</h2>
-  <div class="explore__bg">
-    <div class="explore__content">
-      <p class="section__description">10th MAR 2023</p>
-      <h4>Exciting New Routes Added!</h4>
-      <button class="btn">Learn More</button>
-    </div>
-  </div>
-</section>
-
-<footer class="footer" id="contact">
-  <div class="section_container footer_container">
-    <div class="footer__col">
-      <div class="logo">
-        <a href="#home"><img src="fragments/logo.png" alt="logo" /></a>
-      </div>
-      <p class="section__description">
-        Your journey begins with Sky Explorer. Explore the skies with comfort and style.
+<section class="section__container plan__container">
+  <p class="subheader">TRAVEL SUPPORT</p>
+  <h2 class="section__header">Plan your travel with confidence</h2>
+  <p class="description">
+    Find help with your bookings and travel plans, and see what to expect
+    along your journey.
+  </p>
+  <div class="plan__grid">
+    <div class="plan__content">
+      <span class="number">01</span>
+      <h4>Travel Requirements for Dubai</h4>
+      <p>
+        Stay informed and prepared for your trip to Dubai with essential
+        travel requirements, ensuring a smooth and hassle-free experience in
+        this vibrant and captivating city.
       </p>
-      <button class="btn" onclick="book()">Book Now</button>
+      <span class="number">02</span>
+      <h4>Multi-risk travel insurance</h4>
+      <p>
+        Comprehensive protection for your peace of mind, covering a range of
+        potential travel risks and unexpected situations.
+      </p>
+      <span class="number">03</span>
+      <h4>Travel Requirements by destinations</h4>
+      <p>
+        Stay informed and plan your trip with ease, as we provide up-to-date
+        information on travel requirements specific to your desired
+        destinations.
+      </p>
     </div>
-    <div class="footer__col">
-      <h4>QUICK LINKS</h4>
-      <ul class="footer__links">
-        <li><a href="#">Flight Options</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
+    <div class="plan__image">
+      <img th:src="@{/images/plan-1.jpg}" alt="plan" />
+      <img th:src="@{/images/plan-2.jpg}" alt="plan" />
+      <img th:src="@{/images/plan-3.jpg}" alt="plan" />
     </div>
-    <div class="footer__col">
-      <h4>CONNECT WITH US</h4>
-      <ul class="footer__links">
-        <li><a href="#">info@skyexplorer.com</a></li>
-      </ul>
-      <div class="footer__socials">
-        <a href="#"><img src="fragments/facebook.png" alt="facebook" /></a>
-        <a href="#"><img src="fragments/instagram.png" alt="instagram" /></a>
-        <a href="#"><img src="fragments/twitter.png" alt="twitter" /></a>
+  </div>
+</section>
+
+<section class="memories">
+  <div class="section__container memories__container">
+    <div class="memories__header">
+      <h2 class="section__header">
+        Travel to make memories all around the world
+      </h2>
+      <button class="view__all">View All</button>
+    </div>
+    <div class="memories__grid">
+      <div class="memories__card">
+        <span><i class="ri-calendar-2-line"></i></span>
+        <h4>Book & relax</h4>
+        <p>
+          With "Book and Relax," you can sit back, unwind, and enjoy the
+          journey while we take care of everything else.
+        </p>
+      </div>
+      <div class="memories__card">
+        <span><i class="ri-shield-check-line"></i></span>
+        <h4>Smart Checklist</h4>
+        <p>
+          Introducing Smart Checklist with us, the innovative solution
+          revolutionizing the way you travel with our airline.
+        </p>
+      </div>
+      <div class="memories__card">
+        <span><i class="ri-bookmark-2-line"></i></span>
+        <h4>Save More</h4>
+        <p>
+          From discounted ticket prices to exclusive promotions and deals,
+          we prioritize affordability without compromising on quality.
+        </p>
       </div>
     </div>
   </div>
-  <div class="footer__bar">
-    Sky Explorer Airlines.
+</section>
+
+<section class="section__container lounge__container">
+  <div class="lounge__image">
+    <img th:src="@{/images/lounge-1.jpg}" alt="lounge" />
+    <img th:src="@{/images/lounge-2.jpg}" alt="lounge" />
+  </div>
+  <div class="lounge__content">
+    <h2 class="section__header">Unaccompanied Minor Lounge</h2>
+    <div class="lounge__grid">
+      <div class="lounge__details">
+        <h4>Experience Tranquility</h4>
+        <p>
+          Serenity Haven offers a tranquil escape, featuring comfortable
+          seating, calming ambiance, and attentive service.
+        </p>
+      </div>
+      <div class="lounge__details">
+        <h4>Elevate Your Experience</h4>
+        <p>
+          Designed for discerning travelers, this exclusive lounge offers
+          premium amenities, assistance, and private workspaces.
+        </p>
+      </div>
+      <div class="lounge__details">
+        <h4>A Welcoming Space</h4>
+        <p>
+          Creating a family-friendly atmosphere, The Family Zone is the
+          perfect haven for parents and children.
+        </p>
+      </div>
+      <div class="lounge__details">
+        <h4>A Culinary Delight</h4>
+        <p>
+          Immerse yourself in a world of flavors, offering international
+          cuisines, gourmet dishes, and carefully curated beverages.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section__container travellers__container">
+  <h2 class="section__header">Best travellers of the month</h2>
+  <div class="travellers__grid">
+    <div class="travellers__card">
+      <img th:src="@{/images/traveller-1.jpg}" alt="traveller" />
+      <div class="travellers__card__content">
+        <img th:src="@{/images/client-1.jpg}" alt="client" />
+        <h4>Emily Johnson</h4>
+        <p>Dubai</p>
+      </div>
+    </div>
+    <div class="travellers__card">
+      <img th:src="@{/images/traveller-2.jpg}" alt="traveller" />
+      <div class="travellers__card__content">
+        <img th:src="@{/images/client-2.jpg}" alt="client" />
+        <h4>David Smith</h4>
+        <p>Paris</p>
+      </div>
+    </div>
+    <div class="travellers__card">
+      <img th:src="@{/images/traveller-3.jpg}" alt="traveller" />
+      <div class="travellers__card__content">
+        <img th:src="@{/images/client-3.jpg}" alt="client" />
+        <h4>Olivia Brown</h4>
+        <p>Singapore</p>
+      </div>
+    </div>
+    <div class="travellers__card">
+      <img th:src="@{/images/traveller-4.jpg}" alt="traveller" />
+      <div class="travellers__card__content">
+        <img th:src="@{/images/client-4.jpg}" alt="client" />
+        <h4>Daniel Taylor</h4>
+        <p>Malaysia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="subscribe">
+  <div class="section__container subscribe__container">
+    <h2 class="section__header">Subscribe newsletter & get latest news</h2>
+    <form class="subscribe__form">
+      <input type="text" placeholder="Enter your email here" />
+      <button class="btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="section__container footer__container">
+    <div class="footer__col">
+      <h3>Sky Walker</h3>
+      <p>
+        Where Excellence Takes Flight. With a strong commitment to customer
+        satisfaction and a passion for air travel, Sky Walker Airlines offers
+        exceptional service and seamless journeys.
+      </p>
+      <p>
+        From friendly smiles to state-of-the-art aircraft, we connect the
+        world, ensuring safe, comfortable, and unforgettable experiences.
+      </p>
+    </div>
+    <div class="footer__col">
+      <h4>INFORMATION</h4>
+      <p>Home</p>
+      <p>About</p>
+      <p>Offers</p>
+      <p>Seats</p>
+      <p>Destinations</p>
+    </div>
+    <div class="footer__col">
+      <h4>CONTACT</h4>
+      <p>Support</p>
+      <p>Media</p>
+      <p>Socials</p>
+    </div>
+  </div>
+  <div class="section__container footer__bar">
+    <p>Copyright © 2024 Sky Explorer. All rights reserved.</p>
+    <div class="socials">
+      <span><i class="ri-facebook-fill"></i></span>
+      <span><i class="ri-twitter-fill"></i></span>
+      <span><i class="ri-instagram-line"></i></span>
+      <span><i class="ri-youtube-fill"></i></span>
+    </div>
   </div>
 </footer>
-<script src="https://unpkg.com/scrollreveal"></script>
-<script>
-  function book(){
-    window.location.href = "http://localhost:8080/ShowFlightForm";
-  }
-
-  function searchFlights(){
-    // Implement flight search logic or redirect to search page
-    window.location.href = "http://localhost:8080/SearchFlights";
-  }
-</script>
 </body>
-</html>
+</html>-->

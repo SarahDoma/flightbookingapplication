@@ -1,4 +1,4 @@
-package com.javaproject.flightbookingapp.services;
+/*package com.javaproject.flightbookingapp.services;
 
 import com.javaproject.flightbookingapp.domain.FlightBooking;
 import com.javaproject.flightbookingapp.repository.FlightBookingRepository;
@@ -32,41 +32,31 @@ public class FlightBookingServiceImpl implements FlightBookingService {
     }
 
     @Override
-    public FlightBooking getHotelById(long Id) {
-        return null;
-    }
-
-    @Override
     public List<FlightBooking> getAllFlights() {
         return flightBookingRepository.findAll();
     }
 
     @Override
-    public FlightBooking update(FlightBooking flightBooking) {
-        return null;
-    }
-
-    @Override
-    public FlightBooking updateFlightBookingRecord(FlightBooking flightBooking) {
+    public FlightBooking updateFlightById(FlightBooking flightBooking) {
         Optional<FlightBooking> optionalFlightBooking = flightBookingRepository.findById(flightBooking.getId());
         if (optionalFlightBooking.isPresent()) {
-            FlightBooking updateFlightBookingRecord = optionalFlightBooking.get();
-            updateFlightBookingRecord.setPassengerFirstName(flightBooking.getPassengerFirstName());
-            updateFlightBookingRecord.setLastName(flightBooking.getPassengerLastName());
-            updateFlightBookingRecord.setPassengerTelephone(flightBooking.getPassengerTelephone());
-            updateFlightBookingRecord.setPassengerEmail(flightBooking.getPassengerEmail());
-            updateFlightBookingRecord.setFlightType(flightBooking.getFlightType());
-            updateFlightBookingRecord.setAirline(flightBooking.getAirline());
-            flightBookingRepository.save(updateFlightBookingRecord);
+            FlightBooking updateFlightById = optionalFlightBooking.get();
+            updateFlightById.setPassengerFirstName(flightBooking.getPassengerFirstName());
+            updateFlightById.setLastName(flightBooking.getPassengerLastName());
+            updateFlightById.setPassengerTelephone(flightBooking.getPassengerTelephone());
+            updateFlightById.setPassengerEmail(flightBooking.getPassengerEmail());
+            updateFlightById.setFlightType(flightBooking.getFlightType());
+            updateFlightById.setAirline(flightBooking.getAirline());
+            flightBookingRepository.save(updateFlightById);
 
-            return updateFlightBookingRecord;
+            return updateFlightById;
         } else {
             throw new RuntimeException("This flight is currently not available");
         }
     }
 
     @Override
-    public void deleteFlight(long id) {
+    public void deleteFlightById(long id) {
         flightBookingRepository.deleteById(id);
     }
-}
+}*/

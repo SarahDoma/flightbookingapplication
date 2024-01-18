@@ -1,6 +1,7 @@
-package com.javaproject.flightbookingapp.services;
+/*package com.javaproject.flightbookingapp.services;
 
 import com.javaproject.flightbookingapp.domain.FlightBooking;
+import com.javaproject.flightbookingapp.services.FlightBookingService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,14 +11,10 @@ public interface FlightBookingService {
     FlightBooking saveFlight(FlightBooking flightBooking);
     FlightBooking getFlightById(long Id);
 
-    FlightBooking getHotelById(long Id);
-
     List<FlightBooking> getAllFlights();
-    FlightBooking update(FlightBooking flightBooking);
 
-    FlightBooking updateFlightBookingRecord(FlightBooking flightBooking);
+    FlightBooking updateFlightById(FlightBooking flightBooking);
 
-    void deleteFlight(long Id);
+    void deleteFlightById(long Id);
 
-
-}
+}*/
